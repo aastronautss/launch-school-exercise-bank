@@ -55,3 +55,59 @@ end
 
 # Double Doubles
 
+def double_number?(num)
+  num_str = num.to_s
+  center = num_str.length / 2
+  num_str[0...center] == num_str[center..-1]
+end
+
+def twice(num)
+  double_number?(num) ? num : num * 2
+end
+
+# Grade Book
+
+def avg(*nums)
+  nums.inject(:+) / nums.length
+end
+
+def get_grade(*scores)
+  average = avg *scores
+  case average
+  when 90..100
+    'A'
+  when 80...90
+    'B'
+  when 70...80
+    'C'
+  when 60...70
+    'D'
+  else
+    'F'
+  end
+end
+
+# Clean Up the Words
+
+def clean_up(str)
+  str.gsub /[^A-Za-z]+/, ' '
+end
+
+# What Century is That
+SPECIAL_SUFFIXES = { 1 => 'st', 2 => 'nd', 3 => 'rd' }.freeze
+
+def special_th_suffix?(num)
+  [11, 12, 13].include? num % 100
+end
+
+def nth_suffix(num)
+  return 'th' if special_th_suffix? num
+
+  last_digit = num % 10
+  SPECIAL_SUFFIXES[last_digit] || 'th'
+end
+
+def century(year)
+  year_num = (year / 100.0).ceil
+  "#{year_num}#{nth_suffix year_num}"
+end

@@ -85,3 +85,59 @@ function madlibs() {
 
 // Double Doubles
 
+function isDoubleNumber(num) {
+  numStr = String(num);
+  halfIdx = numStr.length / 2;
+  return numStr.substring(0, halfIdx) === numStr.substring(halfIdx)
+}
+
+function twice(num) {
+  return isDoubleNumber(num) ? num : 2 * num;
+}
+
+// Grade book
+
+function getGrade(score1, score2, score3) {
+  var avg = (score1 + score2 + score3) / 3;
+
+  if (avg >= 90) {
+    return 'A';
+  } else if (avg >= 80) {
+    return 'B';
+  } else if (avg >= 70) {
+    return 'C';
+  } else if (avg >= 60) {
+    return 'D';
+  } else {
+    return 'F';
+  }
+}
+
+// Clean Up the Words
+
+function cleanUp(str) {
+  return str.replace(/[^A-Za-z]+/g, ' ');
+}
+
+// What Century is That
+
+function isSpecialThSuffix(num) {
+  return [11, 12, 13].includes(num % 100);
+}
+
+function nthSuffix(num) {
+  var specialSuffixes = { 1: 'st', 2: 'nd', 3: 'rd' };
+  var lastDigit;
+
+  if (isSpecialThSuffix(num)) {
+    return 'th';
+  }
+
+  var lastDigit = num % 10;
+  return specialSuffixes[lastDigit] || 'th';
+}
+
+function century(year) {
+  var centuryNum = Math.ceil(year / 100);
+  return String(centuryNum) + nthSuffix(centuryNum);
+}
