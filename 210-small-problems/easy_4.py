@@ -63,6 +63,8 @@ def count_occurrences(sequence):
     for key in counts:
         print('{} => {}'.format(key, counts[key]))
 
+# Int Average
+
 def average(sequence):
     sum = lambda seq: reduce(lambda x, y: x + y, seq)
-    return sum(sequence) / len(sequence)
+    return round(sum(sequence) / len(sequence))
