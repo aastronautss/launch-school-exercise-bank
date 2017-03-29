@@ -1,3 +1,5 @@
 # Launch School Exercises
 
-Launch School recently released a few exercises for some additional programming practice. These are my solutions to those exercises.
+Solutions for various exercises found throughout the web.
+
+Folder and documents laid out beforehand, hence the blank file.
